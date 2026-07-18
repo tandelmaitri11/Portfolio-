@@ -13,6 +13,7 @@ const Navbar = () => {
     "education",
     "projects",
     "certificates",
+    "internships",
     "contact",
   ];
 
@@ -21,85 +22,76 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex justify-between items-center h-20">
 
-          {/* Logo */}
-          <h1 className="text-3xl font-bold text-cyan-400 cursor-pointer">
+          <h1 className="text-3xl font-bold text-cyan-400">
             Maitri<span className="text-white">.</span>
           </h1>
 
-          {/* Desktop Menu */}
-          <ul className="hidden lg:flex items-center gap-8 text-gray-300 font-medium">
-            {links.map((link) => (
-              <li key={link}>
+          <ul className="hidden lg:flex items-center gap-8 text-gray-300">
+
+            {links.map((item) => (
+              <li key={item}>
                 <Link
-                  to={link}
+                  to={item}
                   spy={true}
                   smooth={true}
                   duration={500}
-                  offset={-80}
+                  offset={-70}
                   activeClass="text-cyan-400"
-                  className="cursor-pointer capitalize hover:text-cyan-400 transition duration-300"
+                  className="cursor-pointer capitalize hover:text-cyan-400 transition"
                 >
-                  {link}
+                  {item}
                 </Link>
               </li>
             ))}
+
           </ul>
 
-          {/* Desktop Resume Button */}
-          <div className="hidden lg:block">
-            <a
-              href="/Maitri-Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full font-medium transition duration-300 hover:scale-105"
-            >
-              View Resume
-            </a>
-          </div>
+          <a
+            href="/Maitri-Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden lg:block bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-full text-white"
+          >
+            View Resume
+          </a>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setNav(!nav)}
             className="lg:hidden text-white text-2xl"
           >
             {nav ? <FaTimes /> : <FaBars />}
           </button>
-
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`lg:hidden fixed top-20 left-0 w-full bg-slate-900 transition-all duration-500 ${
           nav ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <ul className="flex flex-col items-center gap-6 py-8 text-white">
+        <ul className="flex flex-col items-center py-8 gap-6">
 
-          {links.map((link) => (
-            <li key={link}>
+          {links.map((item) => (
+            <li key={item}>
               <Link
-                to={link}
+                to={item}
                 spy={true}
                 smooth={true}
                 duration={500}
-                offset={-80}
+                offset={-70}
                 onClick={() => setNav(false)}
-                activeClass="text-cyan-400"
-                className="cursor-pointer capitalize hover:text-cyan-400 transition duration-300"
+                className="text-white capitalize cursor-pointer"
               >
-                {link}
+                {item}
               </Link>
             </li>
           ))}
 
-          {/* Mobile Resume Button */}
           <a
             href="/Maitri-Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => setNav(false)}
-            className="bg-cyan-500 hover:bg-cyan-600 text-white px-6 py-3 rounded-full font-medium transition duration-300"
+            className="bg-cyan-500 px-6 py-3 rounded-full text-white"
           >
             View Resume
           </a>

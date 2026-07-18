@@ -1,7 +1,7 @@
 import cms from "../assets/images/Project/cms.png";
-import school from "../assets/images/w8.jpg";
-import ecommerce from "../assets/images/w8.jpg";
-import hospital from "../assets/images/w8.jpg";
+import school from "../assets/images/Project/sms.png";
+import ecommerce from "../assets/images/Project/msfashion.png";
+import hospital from "../assets/images/Project/hms.png";
 import resume from "../assets/images/w8.jpg";
 import facemask from "../assets/images/w8.jpg";
 

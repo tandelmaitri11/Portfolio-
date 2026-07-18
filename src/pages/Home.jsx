@@ -55,6 +55,13 @@ function App() {
       </section>
 
       <section
+        id="internships"
+        className="h-screen flex items-center justify-center bg-slate-950"
+      >
+        <h1 className="text-5xl text-white">Internships</h1>
+      </section>
+
+      <section
         id="contact"
         className="h-screen flex items-center justify-center bg-slate-900"
       >
