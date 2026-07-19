@@ -3,146 +3,89 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const Projects = () => {
   return (
-    <section id="projects" className="bg-slate-950 py-24">
-      <div className="max-w-screen-2xl mx-auto px-8 lg:px-12">
+    <section id="projects" className="bg-[#FAF9F6] dark:bg-[#1B1612] py-32 border-t border-stone-200/50 dark:border-[#3f3129]/40 relative overflow-hidden transition-colors duration-500">
+      
+      {/* Background grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e5e5_1px,transparent_1px),linear-gradient(to_bottom,#e5e5e5_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#3f3129_1px,transparent_1px),linear-gradient(to_bottom,#3f3129_1px,transparent_1px)] bg-[size:32px_32px] opacity-20"></div>
 
-        {/* Heading */}
-        <div className="text-center mb-20">
-          <p className="text-cyan-400 uppercase tracking-[5px] font-semibold">
-            My Projects
-          </p>
-
-          <h2 className="text-4xl md:text-5xl font-bold text-white mt-3">
-            Featured Projects
-          </h2>
-
-          <div className="w-24 h-1 bg-cyan-400 rounded-full mx-auto mt-5"></div>
-
-          <p className="text-gray-400 mt-6 max-w-3xl mx-auto leading-8">
-            Here are some of the projects I have developed using MERN Stack,
-            Artificial Intelligence, Machine Learning, and modern Web
-            Technologies.
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+        
+        {/* Header */}
+        <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-stone-200 dark:border-[#3f3129] pb-12">
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <div className="h-[2px] w-12 bg-amber-800 dark:bg-amber-500"></div>
+              <h4 className="text-amber-800 dark:text-amber-500 font-bold uppercase tracking-[0.2em] text-xs">
+                Selected Work
+              </h4>
+            </div>
+            <h2 className="text-5xl md:text-6xl font-extrabold text-[#4A3528] dark:text-[#F4E7D4] tracking-tight">
+              Featured Projects.
+            </h2>
+          </div>
+          
+          <p className="text-stone-500 dark:text-stone-400 max-w-sm text-lg md:text-right italic">
+            A selection of my recent work, blending clean architecture with seamless user experiences.
           </p>
         </div>
 
-        {/* Projects Grid */}
-
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 justify-items-center">
-
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              className="w-full max-w-[460px] bg-slate-900 border border-slate-700 rounded-3xl overflow-hidden hover:border-cyan-400 hover:-translate-y-3 hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 flex flex-col"
+        {/* Showcase Grid */}
+        <div className="space-y-32">
+          {projects.map((project, index) => (
+            <div 
+              key={project.id} 
+              className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"
             >
-
-              {/* Image */}
-
-              <div className="overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-60 object-cover hover:scale-110 transition duration-500"
-                />
+              {/* Image Side */}
+              <div className={`relative ${index % 2 !== 0 ? "lg:order-2" : "lg:order-1"}`}>
+                <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-stone-300 dark:shadow-black">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-auto transform transition-transform duration-[2s] hover:scale-105"
+                  />
+                  <div className="absolute top-0 left-0 w-24 h-24 border-t-4 border-l-4 border-amber-500/50 rounded-tl-[2rem]"></div>
+                </div>
               </div>
 
-              {/* Content */}
-
-              <div className="p-7 flex flex-col flex-grow">
-
-                {/* Category */}
-
-                <span className="inline-block bg-cyan-500/10 text-cyan-400 text-xs font-semibold px-4 py-2 rounded-full mb-4 self-start">
-                  {project.category}
+              {/* Text Side */}
+              <div className={`flex flex-col ${index % 2 !== 0 ? "lg:order-1" : "lg:order-2"}`}>
+                <span className="text-amber-800 dark:text-amber-500 font-bold text-lg mb-4 block">
+                  0{index + 1} / {projects.length}
                 </span>
-
-                {/* Title */}
-
-                <h3 className="text-2xl font-bold text-white leading-8">
+                <h3 className="text-4xl md:text-5xl font-extrabold text-[#4A3528] dark:text-[#F4E7D4] mb-6 tracking-tight">
                   {project.title}
                 </h3>
+                <p className="text-stone-600 dark:text-stone-300 text-lg leading-relaxed mb-8">
+                  {project.description}
+                </p>
 
-                {/* Technologies */}
-
-                <div className="flex flex-wrap gap-2 mt-5 mb-6">
-                  {project.technologies.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="bg-slate-800 border border-cyan-500/20 text-cyan-300 text-[11px] uppercase tracking-wider font-semibold px-3 py-1 rounded-full"
-                    >
+                {/* Tech Tags */}
+                <div className="flex flex-wrap gap-3 mb-10">
+                  {project.technologies.map((tech, i) => (
+                    <span key={i} className="text-xs font-bold text-[#4A3528] dark:text-[#F4E7D4] bg-stone-100 dark:bg-[#3f3129] px-4 py-2 rounded-full uppercase tracking-widest border border-stone-200 dark:border-[#3f3129]">
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Description */}
-
-                <p className="text-gray-400 text-sm leading-7 mb-6">
-                  {project.description}
-                </p>
-
-                {/* Features */}
-
-                <div className="flex-grow">
-
-                  <h4 className="text-white font-semibold mb-3">
-                    Key Features
-                  </h4>
-
-                  <ul className="space-y-2">
-
-                    {project.features.map((feature, index) => (
-                      <li
-                        key={index}
-                        className="flex items-start gap-2 text-gray-400 text-sm leading-6"
-                      >
-                        <span className="text-cyan-400 mt-1">•</span>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-
-                  </ul>
-
+                {/* Links */}
+                <div className="flex gap-6">
+                  {project.github && (
+                    <a href={project.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 font-bold text-[#4A3528] dark:text-[#F4E7D4] hover:text-amber-800 dark:hover:text-amber-500 transition">
+                      <FaGithub className="text-xl" /> View Source
+                    </a>
+                  )}
+                  {project.demo && (
+                    <a href={project.demo} target="_blank" rel="noreferrer" className="flex items-center gap-2 font-bold text-[#4A3528] dark:text-[#F4E7D4] hover:text-amber-800 dark:hover:text-amber-500 transition">
+                      <FaExternalLinkAlt className="text-lg" /> Visit Project
+                    </a>
+                  )}
                 </div>
-
-                {/* Buttons */}
-
-                {(project.github || project.demo) && (
-                  <div className="flex gap-4 mt-8">
-
-                    {project.github && (
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 bg-slate-800 hover:bg-cyan-500 text-white py-3 rounded-xl transition duration-300"
-                      >
-                        <FaGithub />
-                        GitHub
-                      </a>
-                    )}
-
-                    {project.demo && (
-                      <a
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1 flex items-center justify-center gap-2 border border-cyan-400 text-cyan-400 hover:bg-cyan-500 hover:text-white py-3 rounded-xl transition duration-300"
-                      >
-                        <FaExternalLinkAlt />
-                        Live Demo
-                      </a>
-                    )}
-
-                  </div>
-                )}
-
               </div>
-
             </div>
           ))}
-
         </div>
-
       </div>
     </section>
   );

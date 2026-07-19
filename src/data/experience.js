@@ -5,22 +5,10 @@ import {
 } from "react-icons/fa";
 
 const experienceData = [
-  {
-    id: 1,
-    role: "Data Analyst Intern",
-    company: "Technetics",
-    duration: "July 2026 - Present | Online",
-    icon: FaChartLine,
-    description: [
-      "Learning data cleaning and preprocessing using Excel and SQL.",
-      "Creating interactive dashboards using Power BI.",
-      "Analyzing business data to generate insights.",
-      "Working with real-world datasets and reports.",
-    ],
-  },
+
 
   {
-  id: 2,
+  id: 1,
   role: "Software Development Intern",
   company: "CodeSynergiX",
   duration: "Apr 2025 – May 2026 | On-site",

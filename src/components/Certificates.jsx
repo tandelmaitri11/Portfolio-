@@ -1,139 +1,91 @@
 import certifications from "../data/certifications";
-import {
-  FaExternalLinkAlt,
-  FaCalendarAlt,
-  FaIdBadge,
-  FaAward,
+import { 
+  FaExternalLinkAlt, 
+  FaCalendarAlt, 
+  FaIdBadge, 
+  FaAward 
 } from "react-icons/fa";
 
 const Certificates = () => {
   return (
-    <section id="certificates" className="bg-slate-950 py-24">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+    <section id="certificates" className="bg-[#FAF9F6] dark:bg-[#1B1612] py-24 border-t border-stone-200/50 dark:border-[#3f3129]/40 relative overflow-hidden transition-colors duration-500">
+      {/* Subtle modern background grid */}
+      <div className="absolute inset-0 bg-[radial-gradient(#e5e5e5_1px,transparent_1px)] dark:bg-[radial-gradient(#3f3129_1px,transparent_1px)] [background-size:24px_24px] opacity-60"></div>
 
-        {/* Heading */}
-        <div className="text-center mb-16">
-
-          <p className="uppercase tracking-[6px] text-cyan-400 font-semibold">
-            Verified Achievements
-          </p>
-
-          <h2 className="text-5xl font-bold text-white mt-4">
-            Certifications
-            <span className="text-cyan-400">.</span>
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+        
+        {/* Header */}
+        <div className="text-center mb-20">
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="h-[2px] w-8 md:w-12 bg-amber-800/40 dark:bg-amber-500/40"></div>
+            <p className="text-amber-800 dark:text-amber-500 font-bold uppercase tracking-widest text-sm">
+              Verified Achievements
+            </p>
+            <div className="h-[2px] w-8 md:w-12 bg-amber-800/40 dark:bg-amber-500/40"></div>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#4A3528] dark:text-[#F4E7D4] tracking-tight">
+            Certifications.
           </h2>
-
-          <div className="w-24 h-1 bg-cyan-400 rounded-full mx-auto mt-5"></div>
-
-          <p className="text-gray-400 mt-6 max-w-3xl mx-auto leading-8">
-            Professional certifications demonstrating my expertise in
-            Data Analytics, Artificial Intelligence, Power BI,
-            Software Development, and Modern Web Technologies.
-          </p>
-
         </div>
 
-        {/* Certificates */}
-
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10">
-
+        {/* Certificates Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
           {certifications.map((item) => (
-
             <div
               key={item.id}
-              className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-700 hover:border-cyan-400 hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500"
+              className="bg-white dark:bg-[#2A211B] border border-stone-200 dark:border-[#3f3129] rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl hover:shadow-amber-900/5 transition-all duration-500 group flex flex-col"
             >
-
-              {/* Certificate Image */}
-
-              <div className="bg-white h-[420px] flex items-center justify-center p-5">
-
+              
+              {/* Certificate Image Frame */}
+              <div className="h-64 bg-stone-50 dark:bg-[#1B1612] flex items-center justify-center p-6 border-b border-stone-100 dark:border-[#3f3129]">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="max-w-full max-h-full object-contain rounded-lg transition duration-500 hover:scale-105"
+                  className="max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105"
                 />
-
               </div>
 
-              {/* Certificate Details */}
-
-              <div className="p-7">
-
-                <div className="flex items-center gap-2 mb-3">
-
-                  <FaAward className="text-cyan-400 text-xl" />
-
-                  <h3 className="text-2xl font-bold text-white">
+              {/* Details */}
+              <div className="p-8 flex flex-col flex-grow">
+                <div className="flex items-start gap-3 mb-6">
+                  <FaAward className="text-amber-700 dark:text-amber-500 text-2xl mt-1" />
+                  <h3 className="text-xl font-extrabold text-[#4A3528] dark:text-[#F4E7D4] leading-snug">
                     {item.title}
                   </h3>
-
                 </div>
 
-                <p className="text-cyan-400 uppercase tracking-wider font-semibold mb-6">
+                <p className="text-amber-800 dark:text-amber-500 font-bold uppercase tracking-widest text-xs mb-8">
                   {item.provider}
                 </p>
 
-                {/* Date */}
-
-                <div className="flex items-center gap-3 text-gray-300 mb-4">
-
-                  <FaCalendarAlt className="text-cyan-400" />
-
-                  <div>
-
-                    <p className="text-sm text-gray-500">
-                      Issued
-                    </p>
-
-                    <p>{item.date}</p>
-
+                {/* Meta Info */}
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-center gap-3 text-stone-600 dark:text-stone-400">
+                    <FaCalendarAlt className="text-amber-700 dark:text-amber-500" />
+                    <span className="text-sm font-medium">Issued: {item.date}</span>
                   </div>
-
-                </div>
-
-                {/* Credential */}
-
-                <div className="flex items-start gap-3 text-gray-300">
-
-                  <FaIdBadge className="text-cyan-400 mt-1" />
-
-                  <div>
-
-                    <p className="text-sm text-gray-500">
-                      Credential ID
-                    </p>
-
-                    <p className="break-all">
-                      {item.credentialId}
-                    </p>
-
+                  <div className="flex items-center gap-3 text-stone-600 dark:text-stone-400">
+                    <FaIdBadge className="text-amber-700 dark:text-amber-500" />
+                    <span className="text-sm font-mono truncate">{item.credentialId}</span>
                   </div>
-
                 </div>
 
                 {/* Verify Button */}
-
                 {item.link && (
                   <a
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-8 w-full flex justify-center items-center gap-3 bg-cyan-500 hover:bg-cyan-600 text-white py-3 rounded-xl font-semibold transition duration-300"
+                    className="mt-auto w-full flex justify-center items-center gap-3 bg-stone-900 dark:bg-[#F4E7D4] hover:bg-amber-800 dark:hover:bg-amber-500 text-white dark:text-[#1B1612] py-4 rounded-xl font-bold transition duration-300 text-sm"
                   >
                     Verify Certificate
-                    <FaExternalLinkAlt />
+                    <FaExternalLinkAlt className="text-xs" />
                   </a>
                 )}
-
               </div>
-
             </div>
-
           ))}
-
         </div>
-
       </div>
     </section>
   );

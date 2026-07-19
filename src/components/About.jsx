@@ -1,79 +1,139 @@
 import aboutImage from "../assets/images/about-me.png";
-import { FaUserGraduate, FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaLaptopCode, FaBriefcase, FaCode, FaChartLine } from "react-icons/fa";
+import { 
+  FaUserGraduate, 
+  FaMapMarkerAlt, 
+  FaEnvelope, 
+  FaPhoneAlt, 
+  FaLaptopCode, 
+  FaBriefcase, 
+  FaCode, 
+  FaMobileAlt 
+} from "react-icons/fa";
 
 const About = () => {
   const name = import.meta.env.VITE_NAME || "Maitri Tandel";
   const email = import.meta.env.VITE_EMAIL || "mailto:example@gmail.com";
   const phone = import.meta.env.VITE_PHONE || "+91 0000000000";
 
+  const techStack = [
+    "React.js", "Node.js", "Express.js", "MongoDB", 
+    "JavaScript", "HTML", "CSS", "Tailwind CSS", "REST APIs", "JWT"
+  ];
+
   return (
-    <section id="about" className="bg-slate-900 py-24">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="text-center mb-16">
-          <h4 className="text-cyan-400 uppercase tracking-widest">About Me</h4>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mt-3">Get To Know Me</h2>
-          <div className="w-28 h-1 bg-cyan-400 mx-auto mt-5 rounded-full"></div>
-        </div>
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="flex justify-center">
-            <img src={aboutImage} alt="about" className="w-80 md:w-96 rounded-3xl border-4 border-cyan-400 shadow-xl" />
+    <section id="about" className="bg-[#FAF9F6] dark:bg-[#1B1612] py-24 relative overflow-hidden transition-colors duration-500">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e5e5_1px,transparent_1px),linear-gradient(to_bottom,#e5e5e5_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#3f3129_1px,transparent_1px),linear-gradient(to_bottom,#3f3129_1px,transparent_1px)] bg-[size:32px_32px] opacity-20"></div>
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+        
+        {/* Minimalist Section Header */}
+        <div className="mb-16">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="h-[1px] w-12 bg-amber-800 dark:bg-amber-500"></div>
+            <h4 className="text-amber-800 dark:text-amber-500 font-bold uppercase tracking-widest text-sm">
+              Discover
+            </h4>
           </div>
-          <div>
-            <h2 className="text-3xl font-bold text-white mb-6">MERN Stack Developer</h2>
-            <p className="text-gray-400 leading-8 mb-8">
-              Hello! I'm <span className="text-cyan-400 font-semibold">{name}</span>, a passionate <span className="text-white font-medium">MERN Stack Developer</span> with a strong interest in building modern, responsive, and user-friendly web applications. I enjoy transforming ideas into functional digital solutions using <span className="text-white">React.js, Node.js, Express.js, MongoDB, JavaScript, HTML, CSS, and Tailwind CSS</span>. Through academic and personal projects, I have gained hands-on experience in frontend development, backend integration, REST APIs, authentication, and database management while following clean coding practices and creating seamless user experiences.
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#4A3528] dark:text-[#F4E7D4] tracking-tight">
+            About Me.
+          </h2>
+        </div>
+
+        {/* Modern Bento Box Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          
+          {/* Card 1: Image & Identity */}
+          <div className="lg:col-span-4 relative rounded-3xl overflow-hidden bg-white dark:bg-[#2A211B] border border-stone-200 dark:border-[#3f3129] shadow-sm min-h-[400px]">
+            <img 
+              src={aboutImage} 
+              alt="about" 
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105" 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-900/90 via-stone-900/20 to-transparent"></div>
+            
+            <div className="absolute bottom-0 left-0 w-full p-8">
+              <h3 className="text-3xl font-bold text-white mb-1">{name}</h3>
+              <p className="text-amber-400 font-medium tracking-wide">MERN Stack Developer</p>
+            </div>
+          </div>
+
+          {/* Card 2: Main Bio & Tech Stack */}
+          <div className="lg:col-span-8 bg-white dark:bg-[#2A211B] rounded-3xl p-8 md:p-12 border border-stone-200 dark:border-[#3f3129] shadow-sm flex flex-col justify-center">
+            <h3 className="text-2xl font-bold text-[#4A3528] dark:text-[#F4E7D4] mb-6">
+              Architecting Digital Experiences
+            </h3>
+            <p className="text-stone-600 dark:text-stone-300 leading-relaxed mb-6 text-lg">
+              I am a passionate <span className="text-amber-800 dark:text-amber-500 font-semibold">MERN Stack Developer</span> driven by the desire to build modern, highly responsive, and user-friendly web applications. From conceptualization to deployment, I specialize in transforming complex requirements into functional, scalable digital solutions. 
             </p>
-            <p className="text-gray-400 leading-8 mb-8">
-              Alongside web development, I am continuously expanding my knowledge in <span className="text-cyan-400 font-semibold">Data Analytics</span> by learning <span className="text-white">Python, SQL, Excel, and Power BI</span>. I enjoy exploring new technologies, solving real-world problems, and continuously improving my technical skills. My goal is to build innovative, scalable applications while combining development and analytical thinking to create impactful digital solutions.
+            <p className="text-stone-600 dark:text-stone-300 leading-relaxed mb-8 text-lg">
+              My approach focuses on writing clean, efficient code and utilizing modern architectural patterns. Whether designing intuitive frontend interfaces or structuring secure backend databases, my ultimate goal is to deliver impactful, high-quality web experiences that solve real-world problems.
             </p>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="flex gap-4">
-                <FaUserGraduate className="text-cyan-400 text-xl mt-1" />
-                <div>
-                  <h4 className="text-white font-semibold">Education</h4>
-                  <p className="text-gray-400">M.Sc.CA Student</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <FaMapMarkerAlt className="text-cyan-400 text-xl mt-1" />
-                <div>
-                  <h4 className="text-white font-semibold">Location</h4>
-                  <p className="text-gray-400">Gujarat, India</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <FaEnvelope className="text-cyan-400 text-xl mt-1" />
-                <div>
-                  <h4 className="text-white font-semibold">Email</h4>
-                  <a href={email} className="text-gray-400 hover:text-cyan-400 transition">{email.replace("mailto:", "")}</a>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <FaPhoneAlt className="text-cyan-400 text-xl mt-1" />
-                <div>
-                  <h4 className="text-white font-semibold">Phone</h4>
-                  <a href={`tel:${phone.replace(/\s/g, "")}`} className="text-gray-400 hover:text-cyan-400 transition">{phone}</a>
-                </div>
+            
+            {/* Tech Stack Pills */}
+            <div className="mt-auto">
+              <h4 className="text-sm font-bold text-[#4A3528] dark:text-[#F4E7D4] uppercase tracking-wider mb-4">Core Technologies</h4>
+              <div className="flex flex-wrap gap-2.5">
+                {techStack.map((tech, index) => (
+                  <span 
+                    key={index} 
+                    className="px-4 py-1.5 bg-amber-50 dark:bg-amber-900/30 text-amber-900 dark:text-amber-300 rounded-full text-sm font-medium border border-amber-100 dark:border-amber-800"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
-        </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
-          <StatCard icon={<FaLaptopCode />} number="5+" title="Projects" />
-          <StatCard icon={<FaBriefcase />} number="1" title="Internship" />
-          <StatCard icon={<FaCode />} number="15+" title="Technologies" />
-          <StatCard icon={<FaChartLine />} number="Learning" title="Data Analytics" />
+
+          {/* Card 3: Contact Info Strip */}
+          <div className="lg:col-span-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-2">
+            <InfoModule icon={<FaUserGraduate />} title="Education" detail="M.Sc.CA Student" />
+            <InfoModule icon={<FaMapMarkerAlt />} title="Location" detail="Gujarat, India" />
+            <InfoModule icon={<FaEnvelope />} title="Email" detail={email.replace("mailto:", "")} link={email} />
+            <InfoModule icon={<FaPhoneAlt />} title="Phone" detail={phone} link={`tel:${phone.replace(/\s/g, "")}`} />
+          </div>
+
+          {/* Card 4: Statistics Strip */}
+          <div className="lg:col-span-12 grid grid-cols-2 lg:grid-cols-4 gap-6 mt-2">
+            <StatModule icon={<FaLaptopCode />} number="5+" label="Projects Built" />
+            <StatModule icon={<FaBriefcase />} number="1" label="Internship" />
+            <StatModule icon={<FaCode />} number="15+" label="Technologies" />
+            <StatModule icon={<FaMobileAlt />} number="100%" label="Responsive UI" />
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-const StatCard = ({ icon, number, title }) => (
-  <div className="bg-slate-800 rounded-2xl p-8 text-center hover:-translate-y-2 hover:shadow-xl hover:shadow-cyan-500/20 duration-300">
-    <div className="text-cyan-400 text-5xl mx-auto mb-5 flex justify-center">{icon}</div>
-    <h2 className="text-3xl font-bold text-white">{number}</h2>
-    <p className="text-gray-400 mt-2">{title}</p>
+/* --- Sub-Components --- */
+
+const InfoModule = ({ icon, title, detail, link }) => (
+  <div className="bg-white dark:bg-[#2A211B] p-6 rounded-3xl border border-stone-200 dark:border-[#3f3129] shadow-sm flex items-center gap-5">
+    <div className="w-12 h-12 rounded-full bg-amber-50 dark:bg-amber-900/40 text-amber-800 dark:text-amber-500 flex items-center justify-center text-xl shrink-0">
+      {icon}
+    </div>
+    <div className="overflow-hidden">
+      <h4 className="text-stone-500 dark:text-stone-400 text-xs font-semibold uppercase tracking-wider mb-1">{title}</h4>
+      {link ? (
+        <a href={link} className="text-[#4A3528] dark:text-[#F4E7D4] font-bold text-lg hover:text-amber-800 dark:hover:text-amber-500 transition-colors truncate block">
+          {detail}
+        </a>
+      ) : (
+        <p className="text-[#4A3528] dark:text-[#F4E7D4] font-bold text-lg truncate">{detail}</p>
+      )}
+    </div>
+  </div>
+);
+
+const StatModule = ({ icon, number, label }) => (
+  <div className="bg-amber-800 dark:bg-amber-700 p-8 rounded-3xl text-center relative overflow-hidden shadow-lg shadow-amber-900/20">
+    <div className="relative z-10 flex flex-col items-center">
+      <div className="text-amber-200 dark:text-amber-300 text-3xl mb-4">{icon}</div>
+      <h2 className="text-4xl font-extrabold text-white mb-2">{number}</h2>
+      <p className="text-amber-100 font-medium">{label}</p>
+    </div>
   </div>
 );
 

@@ -2,68 +2,62 @@ import educationData from "../data/education";
 
 const Education = () => {
   return (
-    // Changed bg-slate-900 to bg-slate-950 for a deeper, darker base
-    <section id="education" className="bg-slate-950 py-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+    <section id="education" className="bg-stone-100 dark:bg-[#1B1612] py-24 relative overflow-hidden border-t border-stone-200 dark:border-[#3f3129]/40 transition-colors duration-500">
+      
+      {/* Subtle modern background grid */}
+      <div className="absolute inset-0 bg-[radial-gradient(#d6d3d1_1px,transparent_1px)] dark:bg-[radial-gradient(#3f3129_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
         
-        {/* Heading */}
-        <div className="text-center mb-24">
-          <p className="text-cyan-400 uppercase tracking-[5px] font-semibold text-sm">Education</p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mt-3">Academic Journey</h2>
-          <div className="w-24 h-1 bg-cyan-400 rounded-full mx-auto mt-5"></div>
+        {/* Header */}
+        <div className="mb-16">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="h-[2px] w-12 bg-amber-800/40 dark:bg-amber-500/40"></div>
+            <h4 className="text-amber-800 dark:text-amber-500 font-bold uppercase tracking-widest text-sm">
+              Qualifications
+            </h4>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-[#4A3528] dark:text-[#F4E7D4] tracking-tight">
+            Academic Journey.
+          </h2>
         </div>
 
-        {/* Desktop Wave Roadmap */}
-        <div className="hidden lg:block relative h-96">
-          {/* SVG Wave Line */}
-          <svg className="absolute top-16 left-0 w-full h-32" viewBox="0 0 1200 100" preserveAspectRatio="none">
-            <path d="M0,50 Q300,0 600,50 T1200,50" fill="none" stroke="#1e293b" strokeWidth="4" strokeDasharray="10 10" />
-          </svg>
-
-          <div className="grid grid-cols-4 gap-8 relative">
-            {educationData.map((item, index) => {
-              const Icon = item.icon;
-              const isHigh = index % 2 === 0;
-              
-              return (
-                <div key={item.id} className={`flex flex-col items-center relative ${isHigh ? "mt-0" : "mt-32"}`}>
-                  {/* Icon */}
-                  <div className="w-16 h-16 rounded-full bg-slate-900 border-4 border-cyan-400 flex items-center justify-center text-cyan-400 text-2xl shadow-xl z-20 hover:scale-110 transition-transform">
-                    <Icon />
-                  </div>
-
-                  {/* Card - Using bg-slate-900 to contrast against bg-slate-950 background */}
-                  <div className="mt-8 w-full bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300">
-                    <h3 className="text-lg font-bold text-white">{item.degree}</h3>
-                    <p className="text-cyan-400 text-sm font-semibold mt-2">{item.duration}</p>
-                    <p className="text-gray-400 text-xs mt-3">{item.institute}</p>
-                  </div>
+        {/* Education Bento Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {educationData.map((item, index) => {
+            const Icon = item.icon;
+            
+            return (
+              <div 
+                key={item.id} 
+                className="group relative bg-white dark:bg-[#2A211B] border border-stone-200 dark:border-[#3f3129] rounded-[2rem] p-8 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-amber-200 dark:hover:border-amber-700 flex flex-col items-center text-center"
+              >
+                {/* Decorative Step Number */}
+                <div className="absolute top-6 left-6 px-3 py-1 bg-stone-100 dark:bg-[#1B1612] text-stone-500 dark:text-stone-400 font-bold text-xs rounded-full uppercase tracking-wider group-hover:bg-amber-50 dark:group-hover:bg-amber-900/30 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors">
+                  0{index + 1}
                 </div>
-              );
-            })}
-          </div>
-        </div>
 
-        {/* Mobile Timeline */}
-        <div className="lg:hidden relative">
-          <div className="absolute left-7 top-0 h-full w-1 bg-slate-800"></div>
-          <div className="space-y-10">
-            {educationData.map((item) => {
-              const Icon = item.icon;
-              return (
-                <div key={item.id} className="flex gap-5">
-                  <div className="w-14 h-14 rounded-full bg-slate-900 border-2 border-cyan-400 flex items-center justify-center text-cyan-400 text-xl shrink-0 z-10">
-                    <Icon />
-                  </div>
-                  <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 w-full">
-                    <h3 className="text-xl font-bold text-white">{item.degree}</h3>
-                    <p className="text-cyan-400 mt-1 text-sm">{item.duration}</p>
-                    <p className="text-gray-400 text-sm mt-3">{item.institute}</p>
-                  </div>
+                {/* Icon Container */}
+                <div className="w-16 h-16 rounded-2xl bg-stone-50 dark:bg-[#1B1612] border border-stone-100 dark:border-[#3f3129] flex items-center justify-center text-amber-700 dark:text-amber-500 text-2xl mb-8 group-hover:bg-amber-100/50 dark:group-hover:bg-amber-900/20 transition-colors duration-300">
+                  <Icon />
                 </div>
-              );
-            })}
-          </div>
+
+                {/* Content */}
+                <h3 className="text-lg font-extrabold text-[#4A3528] dark:text-[#F4E7D4] mb-2 leading-tight">
+                  {item.degree}
+                </h3>
+                <p className="text-amber-700 dark:text-amber-500 font-bold text-sm mb-4">
+                  {item.duration}
+                </p>
+                <p className="text-stone-500 dark:text-stone-400 text-sm font-medium mt-auto">
+                  {item.institute}
+                </p>
+
+                {/* Hover line accent */}
+                <div className="w-12 h-1 bg-amber-800 dark:bg-amber-500 rounded-full mt-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

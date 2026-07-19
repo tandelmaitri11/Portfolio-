@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 html {
   scroll-behavior: smooth;
 }
@@ -7,6 +9,5 @@ html {
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background: #0f172a;
-  color: white;
+  /* Remove hardcoded background/color so they follow your App.jsx settings */
 }
