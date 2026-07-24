@@ -46,9 +46,17 @@ const Education = () => {
                 <h3 className="text-lg font-extrabold text-[#4A3528] dark:text-[#F4E7D4] mb-2 leading-tight">
                   {item.degree}
                 </h3>
-                <p className="text-amber-700 dark:text-amber-500 font-bold text-sm mb-4">
+                <p className="text-amber-700 dark:text-amber-500 font-bold text-sm mb-2">
                   {item.duration}
                 </p>
+
+                {/* Percentage / CGPA Badge */}
+                {item.score && (
+                  <div className="mb-4 inline-block px-3 py-1 bg-amber-50 dark:bg-amber-900/30 border border-amber-200/60 dark:border-amber-700/40 text-amber-800 dark:text-amber-400 text-xs font-bold rounded-full">
+                    {item.score}
+                  </div>
+                )}
+
                 <p className="text-stone-500 dark:text-stone-400 text-sm font-medium mt-auto">
                   {item.institute}
                 </p>
