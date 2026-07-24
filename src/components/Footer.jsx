@@ -52,19 +52,19 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2.5 text-sm font-medium text-stone-600 dark:text-stone-400">
               <li>
-                <a href="#about" className="hover:text-amber-800 dark:hover:text-amber-500 transition">About</a>
+                <a href="/about" className="hover:text-amber-800 dark:hover:text-amber-500 transition">About</a>
               </li>
               <li>
-                <a href="#skills" className="hover:text-amber-800 dark:hover:text-amber-500 transition">Skills</a>
+                <a href="/skills" className="hover:text-amber-800 dark:hover:text-amber-500 transition">Skills</a>
               </li>
               <li>
-                <a href="#projects" className="hover:text-amber-800 dark:hover:text-amber-500 transition">Projects</a>
+                <a href="/projects" className="hover:text-amber-800 dark:hover:text-amber-500 transition">Projects</a>
               </li>
               <li>
-                <a href="#education" className="hover:text-amber-800 dark:hover:text-amber-500 transition">Education</a>
+                <a href="/education" className="hover:text-amber-800 dark:hover:text-amber-500 transition">Education</a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-amber-800 dark:hover:text-amber-500 transition">Contact</a>
+                <a href="/contact" className="hover:text-amber-800 dark:hover:text-amber-500 transition">Contact</a>
               </li>
             </ul>
           </div>
